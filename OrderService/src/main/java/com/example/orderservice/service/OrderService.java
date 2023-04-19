@@ -20,8 +20,7 @@ import java.util.List;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final WebClient.Builder webClientBuilder;
-    @Transactional
-
+    @Transactional(rollbackOn = Exception.class)// set the transaction timeout to 10 seconds
     public Order placeOrder(Order order){
 
             List<String>  skuCodes = order.getOrderLineItemList().stream()
