@@ -14,11 +14,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="api-gateway" target="17" />
-      <module name="DiscoveryServer" target="17" />
-      <module name="InventoryService" target="17" />
-      <module name="OrderService" target="17" />
-      <module name="ProductService" target="17" />
+      <module name="Notification-service.main" target="17" />
+      <module name="Notification-service.test" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

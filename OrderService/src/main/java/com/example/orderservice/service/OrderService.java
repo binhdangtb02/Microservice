@@ -2,6 +2,7 @@ package com.example.orderservice.service;
 
 import com.example.orderservice.dto.OrderLineItems;
 import com.example.orderservice.dto.ResponseObject;
+import com.example.orderservice.event.OrderPlacedEvent;
 import com.example.orderservice.model.Order;
 import com.example.orderservice.model.OrderLineItem;
 import com.example.orderservice.repository.OrderRepository;
@@ -10,6 +11,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -20,6 +22,7 @@ import java.util.List;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final WebClient.Builder webClientBuilder;
+    private final KafkaTemplate kafkaTemplate;
     @Transactional(rollbackOn = Exception.class)// set the transaction timeout to 10 seconds
     public Order placeOrder(Order order){
 
@@ -34,6 +37,7 @@ public class OrderService {
                     .block();
             if(result){
                 Order order1 = orderRepository.save(order);
+                kafkaTemplate.send("notification", new OrderPlacedEvent(order.getOrderNumber()));
                 return order1;
             }
             else{
