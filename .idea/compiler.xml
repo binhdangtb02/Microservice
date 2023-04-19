@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
+        <module name="NotificationService2" />
         <module name="DiscoveryServer" />
         <module name="OrderService" />
         <module name="ProductService" />
@@ -22,12 +23,15 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Notification-service" target="17" />
+      <module name="NotificationService" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="DiscoveryServer" options="-parameters" />
       <module name="InventoryService" options="-parameters" />
+      <module name="NotificationService" options="-parameters" />
+      <module name="NotificationService2" options="-parameters" />
       <module name="OrderService" options="-parameters" />
       <module name="ProductService" options="-parameters" />
       <module name="api-gateway" options="-parameters" />

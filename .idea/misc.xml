@@ -3,7 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/Notification-service" />
-    <file type="web" url="file://$PROJECT_DIR$/Notification-Service" />
+    <file type="web" url="file://$PROJECT_DIR$/NotificationService" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/DiscoveryServer/pom.xml" />
         <option value="$PROJECT_DIR$/api-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/Notification-Service/pom.xml" />
+        <option value="$PROJECT_DIR$/NotificationService2/pom.xml" />
       </list>
     </option>
   </component>

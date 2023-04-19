@@ -22,7 +22,7 @@ import java.util.List;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final WebClient.Builder webClientBuilder;
-    private final KafkaTemplate kafkaTemplate;
+    private final KafkaTemplate<String, OrderPlacedEvent> kafkaTemplate;
     @Transactional(rollbackOn = Exception.class)// set the transaction timeout to 10 seconds
     public Order placeOrder(Order order){
 
@@ -37,7 +37,7 @@ public class OrderService {
                     .block();
             if(result){
                 Order order1 = orderRepository.save(order);
-                kafkaTemplate.send("notification", new OrderPlacedEvent(order.getOrderNumber()));
+                kafkaTemplate.send( "notificationTopic" , new OrderPlacedEvent(order.getOrderNumber()));
                 return order1;
             }
             else{

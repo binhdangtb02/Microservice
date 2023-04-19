@@ -17,9 +17,9 @@ public class InventoryService {
     private final InventoryRepository inventoryRepository;
     @SneakyThrows
     public Boolean isInStock(List<String> skuCode){
-        log.info("Wait Started");
-        Thread.sleep(10000);
-        log.info("Wait Ended");
+//        log.info("Wait Started");
+//        Thread.sleep(10000);
+//        log.info("Wait Ended");
         return inventoryRepository.findBySkuCodeIn(skuCode).isEmpty();
     }
 }
