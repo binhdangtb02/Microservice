@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>NotificationService2</artifactId>
+    <artifactId>NotificationService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>NotificationService2</name>
-    <description>NotificationService2</description>
+    <name>NotificationService</name>
+    <description>NotificationService</description>
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.2</spring-cloud.version>

@@ -1,4 +1,4 @@
-package com.example.notificationservice2;
+package com.example.notificationservice;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

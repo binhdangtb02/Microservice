@@ -1,4 +1,4 @@
-package com.example.notificationservice2;
+package com.example.notificationservice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -7,15 +7,15 @@ import org.springframework.kafka.annotation.KafkaListener;
 
 @SpringBootApplication
 @Slf4j
-public class NotificationService2Application {
+public class NotificationServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NotificationService2Application.class, args);
+        SpringApplication.run(NotificationServiceApplication.class, args);
     }
 
-    @KafkaListener(topics = "notificationTopic")
+    @KafkaListener(topics = "notificationTopic", groupId = "notificationId")
     public void handleNotification(OrderPlacedEvent orderPlacedEvent){
-        log.info("receive notification  {}" , orderPlacedEvent.getOrderNumber());
+        log.info("receive notification with id {}" , orderPlacedEvent.getOrderNumber());
     }
 
 }
